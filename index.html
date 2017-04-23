@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="utf-8" />
+<title>综合练习_首页</title>
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/app.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<script src="js/jquery.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/route.js"></script>
+</head>
+<body ng-controller="mainctrl">
+<div>
+	<div class="navbar-fixed-top ys2">
+		<div class="row">
+			<div class="toper col-md-2 column bg cen">
+				<img src="images/logo.png"><span>我的APP</span3></span>
+			</div>
+			<div class="toper col-md-10 column bg2">
+				<div class="pull-left ys5">
+					<a href="#"><span class="glyphicon glyphicon-list"></span></a>
+					<a href="#"><span class="glyphicon glyphicon-user"></span></a>
+				</div>
+				<div class="pull-left toper_m">
+					<a href="#"><b>我的文章</b></a>
+					<a href="#"><b>最新动态</b></a>
+				</div>
+				<div class="pull-right toper_m">
+					<a href="#"><span class="glyphicon glyphicon-bell"></span></a>
+					<a href="#">{{userName}} </a>
+					<a href="#"><img src="{{displaySrc}}" class="img-circle tou"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<div class="container-fluid down">
+	<div class="row">
+		<!--左栏-->
+		<div class="col-md-2 column bg ys2">
+			<!--头像-->
+			<div class="cen">
+				<img src="{{displaySrc}}" class="img-circle">
+				<h5>{{userName}} </h5><h6>IT大牛</h6>
+			</div>
+			<!--导航栏-->
+			<ul class="nav">
+				<li class="ys1" ng-repeat="x in list"><a href="#"><span class="glyphicon glyphicon-asterisk">{{x}}</span></a></li>
+				<li class="ys1"><a href="#" ng-click="toggle()"><span class="glyphicon glyphicon-asterisk"></span> 操作</a>
+					<ul class="nav" ng-show="listShow">
+						<li><a href="#">设置栏目</a></li>
+						<li><a href="#">更多设置</a></li>
+						<li><a href="#">分割线</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-10 column ys4">
+			<div class="row">
+				<!--中栏-->
+				<div class="col-md-10 column ys3 h" style="padding:0px;margin:0px;">
+					<!--中栏顶部-->
+					<div class="m_toper">
+						 <div class="m1">
+							  <div class="row">
+								<div class="col-sm-7">
+								  <a href="" class="pull-left">
+									<img src="{{displaySrc}}" class="img-circle">
+								  </a>
+								  <div class="m2">
+									<div>{{userName}} <small> 石家庄，河北</small></div>
+									<input type="button" class="btn btn-sm btn-success btn-rounded" value="关注" ng-click="addFans()" id="addFans">
+								  </div>
+								</div>
+								<div class="col-sm-5">
+								  <div class="pull-right text-center zan">
+									<a href="">
+									  <span class="h3">2k </span>
+									  <small> 点赞 </small>
+									</a> ,
+									<a href="">
+									  <span class="h3">{{fansNum}}</span>
+									  <small> 粉丝</small>
+									</a>
+								  </div>
+								</div>
+							  </div>
+						 </div>
+					</div>
+					<!--中栏底部-->
+					<div class="m_nav">
+						<ul>
+							<li><a href="#/" class="btn btn-success btn-group-sm">动态</a></li>
+							<li><a href="#/edit" class="btn btn-success btn-group-sm">修改信息</a></li>
+							<li><a href="#/dataBlind" class="btn btn-success btn-group-sm">个人简介</a></li>
+						</ul>
+					</div>
+
+					<div ng-view></div>
+					
+					<div class="clear wrapper b-t bg-light ">
+				  <span class="pull-right">版本v1.0.0 <a href="#app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+				  Copyright © 2017 .版权所有：Yang
+				</div>
+				</div>
+				<!--右栏-->
+				<div class="col-md-2 column ys4 h text-center" style="padding:0px;margin:0px;">
+					<h4>我的粉丝</h4>
+				  <ul>
+					<li><a herf=""><img src="images/a1.jpg" class="img-circle"></a>
+						<div>
+						  <div><a href="">小王</a></div>
+						  设计师，博客</div>
+					</li> 
+					<li><a herf=""><img src="images/a2.jpg" class="img-circle"></a>
+						<div>
+						  <div><a href="">张琳</a>
+						  </div>
+						  作家，杂志编辑
+						</div>
+					</li> 
+					<li><a herf=""><img src="images/a3.jpg" class="img-circle"></a>
+						<div>
+						  <div><a href="">李小明</a></div>
+						  艺术总监，电影剪辑</div>
+					</li> 
+					<li><a herf=""><img src="images/a4.jpg" class="img-circle"></a>
+						<div>
+						  <div><a href="">赵大城</a></div>
+						  音乐家，运动员</div>
+					</li>
+				  </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
